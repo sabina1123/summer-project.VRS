@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Vehicle</title>
+    <link rel="stylesheet" href="{% static 'css/book.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include 'Navbar.html' %}
+    <div class="form-container">
+        <h2>Book Now</h2>
+        {% comment %} <form method="POST" action="/book/{{vehi.id}}/initiate_booking/"> {% endcomment %}
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+            <input type="hidden" id="price_per_day" value="{{ form.price_per_day.value }}">
+            <button type="submit" class="btn btn-primary">Book </button>
+        </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const rentalStart = document.getElementById('id_RentalStartDateTime');
+                const rentalEnd = document.getElementById('id_RentalEndDateTime');
+                const totalCost = document.getElementById('id_TotalCost');
+                const pricePerDay = parseFloat(document.getElementById('price_per_day').value);
+        
+                function calculateTotalCost() {
+                    const startDateValue = rentalStart.value;
+                    const endDateValue = rentalEnd.value;
+
+                    if (!startDateValue || !endDateValue) {
+                        return; 
+                        }
+                    const startDate = new Date(rentalStart.value);
+                    const endDate = new Date(rentalEnd.value);
+                    const today = new Date();
+                    const timeDiff = endDate - startDate;
+                    const currentDate = new Date(today.getFullYear(),today.getMonth(),today.getDate());
+                    
+                    if (!isNaN(startDate.getTime()) && !isNaN(endDate.getTime()) && timeDiff > 0 && startDate >= currentDate) {
+                        const days = timeDiff / (1000 * 60 * 60 * 24);
+                        const cost = days * pricePerDay;
+                        totalCost.value = cost.toFixed(2);
+                    } else {
+                        totalCost.value = '';
+                        alert("Please Select Correct Start and End Date")
+                    }
+                }
+        
+                rentalStart.addEventListener('change', calculateTotalCost);
+                rentalEnd.addEventListener('change', calculateTotalCost);
+            });
+        </script>
+    </div>
+</body>
+</html>

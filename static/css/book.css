@@ -1,0 +1,115 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+main-content {
+    padding: 20px;
+}
+
+h1 {
+    color: #343a40;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.vehicle-info {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+}
+
+.vehicle-info img {
+    border-radius: 8px;
+    width: 40%;
+    height: auto;
+    margin-right: 20px;
+}
+
+.vehicle-info .details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} 
+
+.vehicle-info .price {
+    font-size: 28px;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.vehicle-info .model {
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.vehicle-info .car-type {
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.vehicle-info .detail-item {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.vehicle-info .text-center {
+    margin-top: 20px;
+}
+
+.vehicle-info .text-center a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.vehicle-info .text-center a:hover {
+    background-color: #0056b3;
+} 
+
+/* Color coding for vehicle models */
+.car {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+
+.bike {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+}
+
+.bus {
+    background-color: #fff3e0;
+    color: #e65100;
+} 
+
+
+

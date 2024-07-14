@@ -1,0 +1,72 @@
+.vehicle-item {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 15px; /* Add margin-bottom to space out rows */
+}
+
+.images {
+    margin-bottom: 10px;
+}
+
+.images img {
+    width: 100%;
+    height: 200px;
+    border-radius: 4px;
+}
+
+.text-center a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.text-center a:hover {
+    background-color: #0056b3;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.about-us {
+    background-color: #f9f9f9;  /* Light grey background for better readability */
+    border-radius: 8px;  /* Rounded corners */
+    padding: 20px;  /* Padding inside the container */
+    margin: 20px 0;  /* Margin outside the container */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+    font-family: Arial, sans-serif;  /* Font family */
+    color: #333;  /* Text color */
+}
+
+.about-us p {
+    line-height: 1.6;  /* Line height for better readability */
+    margin-bottom: 15px;  /* Space between paragraphs */
+}
+
+.about-us p:last-child {
+    margin-bottom: 0;  /* Remove margin from the last paragraph */
+}
+
+.about-us p:first-of-type {
+    font-weight: bold;  /* Emphasize the first paragraph */
+}
+
+/* Ensure proper centering for single item */
+@media (min-width: 768px) {
+    .row {
+        justify-content: center;
+    }
+
+    .vehicle-item {
+        flex: 1 1 30%;
+        max-width: 30%;
+    }
+}

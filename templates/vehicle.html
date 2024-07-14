@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block content %}
+{% include 'dashboard.html' %}
+
+
+
+    <div class="main-content">
+        {% if messages %}
+         {% for message in messages %}
+           <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endfor %}
+        {% endif %}         
+        <a href="{% url 'add_vehicle' %}" ><button type="submit" class="btn btn-secondary">Add Vehicle</button></a><br/>
+    <table class="table table-striped table-hover table-bordered">
+        
+        <thead class="table-dark">
+
+            <tr>
+                <th scope="col">S.N</th>
+                <th scope="col">Type</th>
+                <th scope="col">model</th>
+                <th scope="col">color</th>
+                <th scope="col">Description</th>
+                <th scope="col">RentalRate</th>
+                <th scope="col">Availability</th>
+                <th scope="col">image</th>
+                <th scope="col">Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% if vehicles %}
+            {% for vehi in vehicles %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{vehi.Type}}</td>
+                <td>{{vehi.model}}</td>
+                <td>{{vehi.color}}</td>
+                <td>{{vehi.description}}</td>
+                <td>{{vehi.RentalRate}}</td>
+                <td>{{vehi.Availability}}</td>
+                <td><img src="{{ vehi.image.url }}" class="img-responsive" width=50px/></td>
+                <td>
+                    <a href="{{vehi.id}}/edit_vehicle" class="btn btn-success">
+                        Edit
+                        </a>
+                          <a href="{% url 'delete_vehicle' vehi.id %}" class="btn btn-danger">
+                          Delete
+                          </a>
+                      </td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>  
+
+{% endblock  %}

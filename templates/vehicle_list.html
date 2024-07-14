@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle List</title>
+</head>
+<body>
+    <h1>Select a Vehicle</h1>
+    <ul>
+        {% for vehicle in vehicles %}
+            <li>
+                <a href="{% url 'select_vehicle' vehicle.id %}">{{ vehicle.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

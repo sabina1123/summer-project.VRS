@@ -1,0 +1,53 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Vehicle</title>
+    <link rel="stylesheet" href="{% static 'css/book.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include 'Navbar.html' %}
+    <div class="main-content">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="container mt-5">
+            <h1>Book Vehicle</h1>
+            <div class="vehicle-info">
+                <img src="{{ vehi.image.url }}" class="img-responsive" alt="vehi.model" />
+                <div class="details">
+                    <div class="price">Nrs. {{ vehi.RentalRate }}</div>
+                    <div class="model">Type:{{ vehi.Type }}</div>
+                    <div class="model">Model:{{ vehi.model }}</div>
+                     <div class="model">Color: {{ vehi.color }}</div>
+                   
+                    <div class="description">Vehicle Description:{{vehi.description}}</div>
+                    <div class="text-center"><a href="/book/{{vehi.id}}/initiate_booking/">Book Now</a></div>
+                  
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html> 
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block content %}
+{% include 'dashboard.html' %}
+
+
+
+    <div class="main-content">
+        {% if messages %}
+         {% for message in messages %}
+           <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endfor %}
+        {% endif %}         
+        {% comment %} <a href="{% url 'add_customer' %}" ><button type="submit" class="btn btn-secondary">Add Customer</button></a><br/> {% endcomment %}
+    <table class="table table-striped table-hover table-bordered">
+        
+        <thead class="table-dark">
+
+            <tr>
+                <th scope="col">S.N</th>
+                <th scope="col">Username</th>
+                {% comment %} <th scope="col">Password</th> {% endcomment %}
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                {% comment %} <th scope="col">Actions</th> {% endcomment %}
+
+            </tr>
+        </thead>
+        <tbody>
+            {% if customers %}
+            {% for customer in customers %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{customer.username}}</td>
+                {% comment %} <td>{{customer.password}}</td> {% endcomment %}
+                <td>{{customer.email}}</td>
+                <td>{{customer.phone}}</td>
+                <td>{{customer.address}}</td>
+                {% comment %} <td>
+                    <a href="{% url 'edit_customer' %}" class="btn btn-success">
+                        Edit
+                        </a>
+                          <a href="{% url 'delete_customer' customer.id %}" class="btn btn-danger">
+                          Delete
+                          </a>
+                      </td> {% endcomment %}
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>  
+
+{% endblock  %}

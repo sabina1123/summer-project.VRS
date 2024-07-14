@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Edit Vehicle{% endblock title %}
+{% block content%}
+<div class="col-md-6 offset-md-3">
+    <h1>Edit Vehicle</h1>
+    <form method="POST" action="{% url 'edit_vehicle' vehicle.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{form.as_p}}
+    
+    <br/>
+    <button type="submit" class="btn btn-secondary">Update</button>
+    
+    </form>
+  
+    </div>
+    {% endblock  %}
+    

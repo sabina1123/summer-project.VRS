@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+    <link rel ="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel ="stylesheet" href="{% static 'css/vehicle.css' %}">
+    
+    <title>Home</title>
+    
+    <!-- <link rel ="stylesheet" href="{% static 'css/footer.css' %}"> -->
+</head>
+<body>
+   
+    {% include 'Navbar.html' %}
+    <div class="container">
+        <img src="{% static 'img/homepage.jpg' %}" alt=""/>
+        <div class="text">Fast & Easy Way To Rent A Vehicle</div>
+        <div class="text2"><pre>Graceful Adventure Travel ia one of the more professional and trusted vehicle rental company in Nepal offering wide range</pre>
+            <pre>of Vehicle that suitable for every travelers need with economical price and attractive offers</pre></div>
+    </div>
+    <br>
+    <h1 class="text-center">About Us</h1>
+
+    <div class="about-us">
+        <p>Graceful Adventure Travel is one of the most professional and trusted vehicle rental companies in Nepal, offering a wide range of vehicles suitable for every traveler's needs at economical prices with attractive offers. Graceful Adventure Travels is an online vehicle rental company designed to revolutionize the vehicle rental industry. It provides customers with a seamless and convenient experience while optimizing operational processes for enhanced efficiency and effectiveness.</p>
+        
+        <p>Graceful Company has a well-experienced team with a decade of experience in tourism and travel. Our energetic, dynamic, friendly, well-disciplined, well-experienced, and fully committed team excels in professionalism, providing customers with high-quality services at competitive prices. We offer tourists and travelers the flexibility to explore destinations at their own pace. Rental vehicles are often used for sightseeing tours, airport transfers, and leisure travel.</p>
+        
+        <p>Graceful Adventure Travel provides buses, cars, and motorbikes for events such as conferences, conventions, weddings, and festivals, which often require transportation services for attendees and equipment. We facilitate the management of transportation logistics for events, including coordinating vehicle rentals and scheduling pickups/drop-offs.</p>
+    </div>
+    
+     <h1 class="text-center">Vehicles</h1>
+
+
+     <div class="container">
+        <div class="row">
+            {% for vehi in vehicles|slice:":3"  %}
+           
+            <div class="col vehicle-item">
+                <div class="images">
+                    <img src="{{ vehi.image.url }}" class="img-responsive" />
+                    <div class="text-center"><a href="/book/{{vehi.id}}">View Vehicle</a></div>
+                </div>
+                <div class="price">Nrs.{{ vehi.RentalRate }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="text-center mb-5">
+        <a href="book_vehicle/"><h3>See More Vehicles</h3></a>
+    </div>
+    
+            
+         
+        
+
+      
+
+
+
+
+
+            
+
+    
+
+</body>
+{% include 'footer.html' %}
+</html>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content%}
+{% include 'Navbar.html' %}
+<div class="col-md-6 offset-md-3">
+ 
+
+<h1>SignUp</h1>
+<br/>
+<form method="POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+
+    {{form.as_p}}
+<br/>
+<button type="submit" class="btn btn-secondary">Signup</button>
+
+</form>
+<a href="{% url 'user_login' %}">Already have an account?Login</a>
+</div>
+{% endblock %}
+
+

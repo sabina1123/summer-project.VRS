@@ -1,0 +1,48 @@
+ {% load static%}
+ <!-- {% block title %}Profile{% endblock title %} -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+  </head>
+  <body>
+    <!-- {% block main-content%} -->
+    {% include 'Navbar.html' %}
+    <div class="container my-5">
+    <div class="row">
+        <h3>Welcome <span class="text-capitalize">{{customer.username}}</span></h3>
+        <!-- <div class="col-sm-2 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">Profile</a></li>
+            </ul>
+        </div> -->
+    </div>
+    <div class="row d-flex">
+      <div class="col-sm-6">
+        <div class="card m-2">
+          <h3>Details</h3>
+          {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+             {{message}}
+             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+           </div>
+           {% endfor %}
+         {% endif %}
+          <p>Username: {{customer.username}}</p>
+          <!-- <p>Password:{{add.Password}}</p> -->
+          <p>Email: {{customer.email}}</p>
+          <p>Phone Number: {{customer.phone}}</p>
+          <p>Address: {{customer.address}}</p>
+          <p class="text-center"><a href="/update/" type="button" class="btn btn-success">Update</a></p>
+
+        </div>
+      </div>
+      </div>
+ <!-- {% endblock main-content %} -->
+
+  </body>
+  </html>
+ 

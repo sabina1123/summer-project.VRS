@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content%}
+<div class="col-md-6 offset-md-3">
+
+<h1>Add Vehicle</h1>
+<br/>
+<form method="POST" action="{% url 'add_vehicle' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{form.as_p}}
+    
+<br/><br>
+<button type="submit" class="btn btn-secondary">Add Vehicle</button>
+
+</form>
+<button type="button" class="btn btn-secondary"><a href="{% url 'dashboard' %}" style="color:white; text-decoration:none;">Go Back To Dashboard</a></button>
+</div>
+{% endblock %}
+
+
